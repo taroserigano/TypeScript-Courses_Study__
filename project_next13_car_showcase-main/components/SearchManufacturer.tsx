@@ -9,13 +9,14 @@ const SearchManufacturer = ({ manufacturer, setManuFacturer }: SearchManuFacture
   const [query, setQuery] = useState("");
 
   const filteredManufacturers =
+    // if there's any search query? 
     query === ""
       ? manufacturers
       : manufacturers.filter((item) =>
           item
             .toLowerCase()
-            .replace(/\s+/g, "")
-            .includes(query.toLowerCase().replace(/\s+/g, ""))
+            .replace(/\s+/g, "") // replace all whitespace from manufacture item 
+            .includes(query.toLowerCase().replace(/\s+/g, "")) // does query include words, compared with manufacture items? 
         );
 
   return (
@@ -61,6 +62,7 @@ const SearchManufacturer = ({ manufacturer, setManuFacturer }: SearchManuFacture
                   Create "{query}"
                 </Combobox.Option>
               ) : (
+              // as you type in search bar, show the pop up for suggestion that match your search query like "TOYOTA" below the search bar 
                 filteredManufacturers.map((item) => (
                   <Combobox.Option
                     key={item}
