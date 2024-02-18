@@ -79,12 +79,16 @@ export default function ProductEditPage() {
   const { mutateAsync: uploadProduct, isLoading: loadingUpload } =
     useUploadProductMutation()
 
+  // upload file 
   const uploadFileHandler = async (
+    // attach "e" to the form 
     e: React.FormEvent<HTMLInputElement>,
     forImages: boolean = false
   ) => {
+    // if there's a file? 
     const file = e.currentTarget.files![0]
     const bodyFormData = new FormData()
+    // insert the file to the FormData 
     bodyFormData.append('image', file)
 
     try {
