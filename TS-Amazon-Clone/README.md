@@ -1,3 +1,26 @@
+React Query Hooks 
+
+export const useDeleteOrderMutation = () =>
+  useMutation({
+       // parameters : orderId 
+    mutationFn: async (orderId: string) =>
+          // return value from backend, which is a message 
+      (await apiClient.delete<{ message: string }>
+      // the URL to send to 
+      (`api/orders/${orderId}`))
+        .data,
+  })
+
+
+
+
+
+
+
+
+
+
+
 # TypeScript MERN AMAZONA
 
 ![amazona](/frontend/public/images/amazona.jpg)
